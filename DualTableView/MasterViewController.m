@@ -19,8 +19,6 @@
     BarTableViewDelegate *_barTableViewDelegate;
 }
 
-@property (strong, nonatomic) UITableView *fooTableView;
-@property (strong, nonatomic) UITableView *barTableView;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
@@ -44,17 +42,15 @@
     
     _fooTableViewDelegate = [[FooTableViewDelegate alloc] init];
     _fooTableViewDelegate.masterViewController = self;
-    self.fooTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 1024.0f)];
     self.fooTableView.delegate = _fooTableViewDelegate;
     self.fooTableView.dataSource = _fooTableViewDelegate;
     
     _barTableViewDelegate = [[BarTableViewDelegate alloc] init];
     _barTableViewDelegate.masterViewController = self;
-    self.barTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 1024.0f)];
     self.barTableView.delegate = _barTableViewDelegate;
     self.barTableView.dataSource = _barTableViewDelegate;
-   
-    [self.view addSubview:self.fooTableView];
+    
+    self.barTableView.hidden = YES;
     
     [self.segmentedControl addTarget:self action:@selector(switchViews:) forControlEvents:UIControlEventValueChanged];
 }
@@ -70,8 +66,9 @@
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
         {
-            [self.barTableView removeFromSuperview];
-            [self.view addSubview:self.fooTableView];
+            self.barTableView.hidden = YES;
+            self.fooTableView.hidden = NO;
+            self.tableView = self.fooTableView;
             NSIndexPath *selection = [self.fooTableView indexPathForSelectedRow];
             NSDate *object = _fooTableViewDelegate.objects[selection.row];
             self.detailViewController.detailItem = object;
@@ -80,8 +77,9 @@
         }
         case 1:
         {
-            [self.fooTableView removeFromSuperview];
-            [self.view addSubview:self.barTableView];
+            self.fooTableView.hidden = YES;
+            self.barTableView.hidden = NO;
+            self.tableView = self.barTableView;
             NSIndexPath *selection = [self.barTableView indexPathForSelectedRow];
             NSDate *object = _barTableViewDelegate.objects[selection.row];
             self.detailViewController.detailItem = object;

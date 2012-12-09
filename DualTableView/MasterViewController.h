@@ -13,6 +13,8 @@
 @interface MasterViewController : UIViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *fooTableView;
+@property (weak, nonatomic) IBOutlet UITableView *barTableView;
 
 @end

@@ -12,12 +12,61 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="19" kind="relationship" relationship="rootViewController" id="25"/>
+                        <segue destination="Vc5-d5-p9x" kind="relationship" relationship="rootViewController" id="ZiA-4G-hkb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="204" y="-706"/>
+        </scene>
+        <!--Master View Controller-->
+        <scene sceneID="o4R-DI-EIT">
+            <objects>
+                <viewController id="Vc5-d5-p9x" customClass="MasterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rVT-yJ-WeB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Fz-Tz-Nf9">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ejS-LL-j9V">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Fz-Tz-Nf9" firstAttribute="bottom" secondItem="rVT-yJ-WeB" secondAttribute="bottom" type="default" id="9sX-Fg-QCt"/>
+                            <constraint firstItem="9Fz-Tz-Nf9" firstAttribute="top" secondItem="rVT-yJ-WeB" secondAttribute="top" type="default" id="I5f-5V-lGe"/>
+                            <constraint firstItem="ejS-LL-j9V" firstAttribute="leading" secondItem="rVT-yJ-WeB" secondAttribute="leading" type="default" id="JBa-T6-TXN"/>
+                            <constraint firstItem="9Fz-Tz-Nf9" firstAttribute="leading" secondItem="rVT-yJ-WeB" secondAttribute="leading" type="default" id="TyA-kj-r96"/>
+                            <constraint firstItem="ejS-LL-j9V" firstAttribute="top" secondItem="rVT-yJ-WeB" secondAttribute="top" type="default" id="VxN-Pe-S7d"/>
+                            <constraint firstItem="ejS-LL-j9V" firstAttribute="bottom" secondItem="rVT-yJ-WeB" secondAttribute="bottom" type="default" id="dF1-TM-sKu"/>
+                            <constraint firstItem="9Fz-Tz-Nf9" firstAttribute="trailing" secondItem="rVT-yJ-WeB" secondAttribute="trailing" type="default" id="n8Y-ji-LGe"/>
+                            <constraint firstItem="ejS-LL-j9V" firstAttribute="trailing" secondItem="rVT-yJ-WeB" secondAttribute="trailing" type="default" id="rHX-uH-ojJ"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xqT-rY-52k">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6e1-ZC-uoK">
+                            <rect key="frame" x="7" y="6" width="306" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barTableView" destination="ejS-LL-j9V" id="uSJ-xv-tVa"/>
+                        <outlet property="fooTableView" destination="9Fz-Tz-Nf9" id="N1s-lC-aRy"/>
+                        <outlet property="segmentedControl" destination="6e1-ZC-uoK" id="4Ol-gK-kMh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4Z-L9-5XK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="-706"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="16">
@@ -68,29 +117,6 @@
             </objects>
             <point key="canvasLocation" x="-1105" y="-602"/>
         </scene>
-        <!--Master View Controller - Master-->
-        <scene sceneID="24">
-            <objects>
-                <tableViewController storyboardIdentifier="" title="Master" clearsSelectionOnViewWillAppear="NO" id="19" customClass="MasterViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="40">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bzz-pv-0G0">
-                            <rect key="frame" x="7" y="7" width="306" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Foo"/>
-                                <segment title="Bar"/>
-                            </segments>
-                        </segmentedControl>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="segmentedControl" destination="bzz-pv-0G0" id="bYT-7q-7wE"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="662" y="-706"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="50">
             <objects>
@@ -117,8 +143,9 @@
         <class className="MasterViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="barTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="fooTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
